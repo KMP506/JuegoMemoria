@@ -10,4 +10,60 @@ package modelo;
  */
 public class Tiempo {
     
+    private int segundos;
+    private boolean activo;
+    
+    public Tiempo(){
+        segundos=0;
+        activo=false;
+    }
+
+    public int getSegundos() {
+        return segundos;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+    
+    public void iniciar(){
+        activo =true;
+    }
+    
+    public void detener(){
+        activo=false;
+    }
+    
+    public void aumentarSegundos(){
+        if(activo){
+            segundos++;
+        }
+    }
+    
+    public void reiniciar(){
+        segundos=0;
+        activo=false;
+    }
+    
+    public String getTiempoFormateado(){
+        int minutos=segundos/60;
+        int segundosRestantes=segundos%60;
+        
+        String textoMinutos;
+        String textoSegundos;
+        
+        if(minutos<10){
+            textoMinutos="0"+minutos;
+        }else{
+            textoMinutos=""+minutos;
+        }
+        if(segundosRestantes<10){
+            textoSegundos="0"+segundosRestantes;
+        }else{
+            textoSegundos=""+segundosRestantes;
+        }
+        return textoMinutos+":"+textoSegundos;
+    }
+    
+    
 }
