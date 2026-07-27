@@ -8,14 +8,14 @@ package modelo;
  *
  * @author isaac
  */
-public enum Dificultad {
+public enum Nivel {
     
     PRINCIPIANTE(4,4), INTERMEDIO(4,8), AVANZADO(8,8);
     
     private final int filas;
     private final int columnas;
 
-    private Dificultad(int filas, int columnas) {
+    private Nivel(int filas, int columnas) {
         this.filas = filas;
         this.columnas = columnas;
     }
