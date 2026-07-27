@@ -1,13 +1,38 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
 package modelo;
 
 /**
  *
- * @author efrai
+ * @author isaac
  */
-public class Dificultad {
+public enum Dificultad {
     
+    PRINCIPIANTE(4,4), INTERMEDIO(4,8), AVANZADO(8,8);
+    
+    private final int filas;
+    private final int columnas;
+
+    private Dificultad(int filas, int columnas) {
+        this.filas = filas;
+        this.columnas = columnas;
+    }
+
+    public int getFilas() {
+        return filas;
+    }
+
+    public int getColumnas() {
+        return columnas;
+    }
+    
+    public int getCantidadCartas(){
+        return filas*columnas;
+    }
+    
+    public int getCantidadParejas(){
+        return getCantidadCartas()/2;
+    }
 }
