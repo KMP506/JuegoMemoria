@@ -8,8 +8,8 @@ import java.util.Random;
  
 /**
  *
- * @author efrai
- *///////
+ * @author monto
+ */
 public class Tablero {
     
     private Carta[][] cartas;
