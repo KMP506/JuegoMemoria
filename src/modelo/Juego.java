@@ -10,4 +10,35 @@ package modelo;
  */
 public class Juego {
     
+    
+    private Tablero tablero;
+    private Jugador jugador;
+    private Tiempo tiempo;
+    private Nivel nivelActual;
+
+    public Tablero getTablero() {
+        return tablero;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public Tiempo getTiempo() {
+        return tiempo;
+    }
+
+    public Nivel getNivelActual() {
+        return nivelActual;
+    }
+
+    public Juego(Nivel nivelActual) {
+        this.tablero = new Tablero(nivelActual);
+        this.jugador = new Jugador();
+        this.tiempo = new Tiempo();
+        this.nivelActual = nivelActual;
+    }
+    
+    
+    
 }
