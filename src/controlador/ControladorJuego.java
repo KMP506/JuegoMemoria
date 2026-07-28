@@ -29,22 +29,22 @@ public class ControladorJuego {
     private boolean juegoActivo;
     
     public Tablero getTablero(){
-        return this.tablero=tablero;
+        return this.tablero;
     }
     public Jugador getJugador(){
-        return this.jugador=jugador;
+        return this.jugador;
     }
     public Tiempo getTiempo(){
-        return this.tiempo=tiempo;
+        return this.tiempo;
     }
     public Nivel getNivelActual(){
-        return this.nivelActual=nivelActual;
+        return this.nivelActual;
     }
     public boolean isEsperandoComparacion(){
-        return this.esperandoComparacion=esperandoComparacion;
+        return this.esperandoComparacion;
     }
     public boolean isJuegoActivo(){
-        return this.juegoActivo=juegoActivo;
+        return this.juegoActivo;
     }
     
     public void iniciarPartida(){
