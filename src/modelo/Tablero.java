@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  *
  * @author efrai
- */
+ *///////
 public class Tablero {
     
     private Carta[][] cartas;
@@ -33,7 +33,7 @@ public class Tablero {
         int contador=0;
         
         for(int i=1;i<=cantidadParejas;i++){
-            imagenes[contador]="imagen"+i;
+            imagenes[contador]="imagen"+ i;
             contador++;
             imagenes[contador]="imagen"+i;
             contador++;
