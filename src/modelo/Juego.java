@@ -10,11 +10,11 @@ package modelo;
  */
 public class Juego {
     
-    
     private Tablero tablero;
     private Jugador jugador;
     private Tiempo tiempo;
     private Nivel nivelActual;
+    private boolean juegoActivo;
 
     public Tablero getTablero() {
         return tablero;
@@ -32,13 +32,40 @@ public class Juego {
         return nivelActual;
     }
 
-    public Juego(Nivel nivelActual) {
-        this.tablero = new Tablero(nivelActual);
-        this.jugador = new Jugador();
-        this.tiempo = new Tiempo();
-        this.nivelActual = nivelActual;
+    public boolean isJuegoActivo() {
+        return juegoActivo;
     }
     
     
+
+    public Juego(Nivel nivelActual) {
+        this.jugador = new Jugador();
+        this.tiempo = new Tiempo();
+        this.nivelActual = nivelActual;
+        iniciarPartida();
+    }
     
+    public void iniciarPartida(){
+        this.tablero= new Tablero(this.nivelActual);
+        this.jugador.reiniciar();
+        this.tiempo.reiniciar();
+        this.tiempo.iniciar();
+        this.juegoActivo=true;
+    }
+    
+    public void reiniciarPartida(){
+        iniciarPartida();
+    }
+    public void cambiarNivel(Nivel nuevoNivel){
+        this.nivelActual=nuevoNivel;
+        
+        iniciarPartida();
+    }
+    
+    public void finalizarPartida(){
+        this.juegoActivo=false;
+        this.tiempo.detener();
+    }
+    
+   
 }
