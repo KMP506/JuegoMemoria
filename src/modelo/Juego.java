@@ -67,5 +67,32 @@ public class Juego {
         this.tiempo.detener();
     }
     
+    public int getTotalParejas() {
+    return this.nivelActual.getCantidadParejas();
+}
+
+    public int getParejasEncontradas() {
+    return this.jugador.getParejasEncontradas();
+}
+
+    public int getParejasFaltantes() {
+int faltantes;
+faltantes = this.getTotalParejas()
+- this.getParejasEncontradas();
+return faltantes;
+}
+
+    public int getPuntaje() {
+ return this.jugador.getPuntaje();
+}
+
+    public int getIntentos() {
+return this.jugador.getIntentos();
+}
+
+    public String getTiempoPartida() {
+return this.tiempo.getTiempoFormateado();
+}
+    
    
 }
