@@ -101,6 +101,36 @@ public class Juego {
         return true;
     }
     
+    public boolean verificarPareja(){
+        jugador.aumentarIntentos();
+        
+        if(tablero.compararCartas(primeraCarta, segundaCarta)){
+            
+            primeraCarta.marcarEncontrada();
+            segundaCarta.marcarEncontrada();
+            
+            jugador.registrarParejaEncontrada();
+            
+            primeraCarta=null;
+            segundaCarta=null;
+            comparacion=false;
+            
+            
+        }
+        return false;
+    }
+    
+    public void ocultarCartas(){
+        if(primeraCarta!=null && segundaCarta!=null){
+            primeraCarta.ocultar();
+            segundaCarta.ocultar();
+            
+            primeraCarta=null;
+            segundaCarta=null;
+            comparacion=false;
+        }
+    }
+    
     public int getTotalParejas() {
     return this.nivelActual.getCantidadParejas();
 }
