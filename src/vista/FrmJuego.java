@@ -3,12 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+
 
 /**
  *
  * @author efrai
  */
 public class FrmJuego extends javax.swing.JFrame {
+    
+    private JButton[][] botonesCartas;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmJuego.class.getName());
 
@@ -17,6 +22,25 @@ public class FrmJuego extends javax.swing.JFrame {
      */
     public FrmJuego() {
         initComponents();
+        crearTablero(4, 4);
+    }
+    
+    public void crearTablero(int filas, int columnas){
+        
+        pnlTablero.removeAll();
+        pnlTablero.setLayout(new GridLayout(filas, columnas));
+        botonesCartas= new JButton[filas][columnas];
+        
+        for(int fila=0; fila<filas; filas++){
+            for(int columna=0; columna<columnas; columna++){
+                botonesCartas[fila][columna]= new JButton("?");
+                
+                pnlTablero.add(botonesCartas[fila][columna]);
+            }
+        }
+        
+        pnlTablero.revalidate();
+        pnlTablero.repaint();
     }
 
     /**
