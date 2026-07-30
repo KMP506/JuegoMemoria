@@ -28,7 +28,7 @@ public class FrmJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlPanel = new javax.swing.JPanel();
+        pnlPrincipal = new javax.swing.JPanel();
         lblPuntajerValor = new javax.swing.JLabel();
         cmbNivel = new javax.swing.JComboBox<>();
         lblTiempo = new javax.swing.JLabel();
@@ -38,7 +38,7 @@ public class FrmJuego extends javax.swing.JFrame {
         lblIntentosValor = new javax.swing.JLabel();
         lblParejas = new javax.swing.JLabel();
         lblParejasValor = new javax.swing.JLabel();
-        lblIntentos3 = new javax.swing.JLabel();
+        lblIntentos = new javax.swing.JLabel();
         pnlTablero = new javax.swing.JPanel();
         btnReiniciar = new javax.swing.JButton();
 
@@ -47,7 +47,8 @@ public class FrmJuego extends javax.swing.JFrame {
         lblPuntajerValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblPuntajerValor.setText("0");
 
-        cmbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PRINCIPIANTE", "INTERMEDIO", "AVANZADO" }));
+        cmbNivel.addActionListener(this::cmbNivelActionPerformed);
 
         lblTiempo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTiempo.setText("Tiempo:");
@@ -70,8 +71,8 @@ public class FrmJuego extends javax.swing.JFrame {
         lblParejasValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblParejasValor.setText("0");
 
-        lblIntentos3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblIntentos3.setText("Intentos:");
+        lblIntentos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblIntentos.setText("Intentos:");
 
         pnlTablero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -89,33 +90,33 @@ public class FrmJuego extends javax.swing.JFrame {
         btnReiniciar.setText("REINICIAR");
         btnReiniciar.addActionListener(this::btnReiniciarActionPerformed);
 
-        javax.swing.GroupLayout pnlPanelLayout = new javax.swing.GroupLayout(pnlPanel);
-        pnlPanel.setLayout(pnlPanelLayout);
-        pnlPanelLayout.setHorizontalGroup(
-            pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
+        pnlPrincipal.setLayout(pnlPrincipalLayout);
+        pnlPrincipalLayout.setHorizontalGroup(
+            pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(lblNivel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPanelLayout.createSequentialGroup()
-                        .addComponent(lblIntentos3)
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblIntentos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblIntentosValor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblPuntaje)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPuntajerValor))
-                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addComponent(lblParejas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblParejasValor)
                         .addGap(0, 126, Short.MAX_VALUE)))
                 .addGap(87, 87, 87)
-                .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addComponent(lblTiempo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTiempoValor))
@@ -123,28 +124,29 @@ public class FrmJuego extends javax.swing.JFrame {
                 .addGap(73, 73, 73))
             .addComponent(pnlTablero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pnlPanelLayout.setVerticalGroup(
-            pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPanelLayout.createSequentialGroup()
+        pnlPrincipalLayout.setVerticalGroup(
+            pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPanelLayout.createSequentialGroup()
-                        .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIntentos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblIntentosValor)
-                            .addComponent(lblTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                            .addComponent(lblTiempoValor)
-                            .addComponent(lblPuntaje)
-                            .addComponent(lblPuntajerValor))
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblIntentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblIntentosValor)
+                                .addComponent(lblTiempoValor)
+                                .addComponent(lblPuntaje)
+                                .addComponent(lblPuntajerValor))
+                            .addComponent(lblTiempo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblParejasValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblParejas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(btnReiniciar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbNivel))))
                 .addGap(37, 37, 37)
@@ -155,11 +157,11 @@ public class FrmJuego extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -168,6 +170,10 @@ public class FrmJuego extends javax.swing.JFrame {
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReiniciarActionPerformed
+
+    private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNivelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +203,7 @@ public class FrmJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JComboBox<String> cmbNivel;
-    private javax.swing.JLabel lblIntentos3;
+    private javax.swing.JLabel lblIntentos;
     private javax.swing.JLabel lblIntentosValor;
     private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblParejas;
@@ -206,7 +212,7 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblPuntajerValor;
     private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblTiempoValor;
-    private javax.swing.JPanel pnlPanel;
+    private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlTablero;
     // End of variables declaration//GEN-END:variables
 }
