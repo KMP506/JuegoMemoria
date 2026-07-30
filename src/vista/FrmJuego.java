@@ -28,6 +28,14 @@ public class FrmJuego extends javax.swing.JFrame {
         crearTablero(4, 4);
     }
     
+     public void reiniciarValores() {
+
+    lblPuntajeValor.setText("0");
+    lblIntentosValor.setText("0");
+    lblParejasValor.setText("0");
+    lblTiempoValor.setText("00:00");
+}
+    
     
     public void crearTableroSegunNivel(){
          String nivelSeleccionado;
@@ -222,7 +230,8 @@ public class FrmJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-        // TODO add your handling code here:
+        reiniciarValores();
+       crearTableroSegunNivel(); 
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
