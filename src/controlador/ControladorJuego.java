@@ -7,19 +7,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import modelo.Carta;
+import modelo.Juego;
 import modelo.Jugador;
 import modelo.Nivel;
 import modelo.Tablero;
 import modelo.Tiempo;
+import vista.FrmJuego;
 /**
  *
  * @author efrai
  */
 public class ControladorJuego {
-    private Tablero tablero;
-    private Jugador jugador;
-    private Tiempo tiempo;
-    private Nivel nivelActual;
+    private Juego juego;
+    private FrmJuego vista;
     private int filaCarta1;
     private int columnaCarta1;
     private int filaCarta2;
@@ -29,21 +29,22 @@ public class ControladorJuego {
     private boolean juegoActivo;
     
        public ControladorJuego(Nivel nivel){
-        this.nivelActual=nivel;
+        this.juego=new Juego(nivel);
+        this.vista=vista;
         iniciarPartida();
     }
     
     public Tablero getTablero(){
-        return this.tablero;
+        return this.juego.getTablero();
     }
     public Jugador getJugador(){
-        return this.jugador;
+        return this.juego.getJugador();
     }
     public Tiempo getTiempo(){
-        return this.tiempo;
+        return this.juego.getTiempo();
     }
     public Nivel getNivelActual(){
-        return this.nivelActual;
+        return this.juego.getNivelActual();
     }
     public boolean isEsperandoComparacion(){
         return this.esperandoComparacion;
@@ -53,37 +54,33 @@ public class ControladorJuego {
     }
     
     public void iniciarPartida(){
-        tablero=new Tablero(nivelActual);
-        jugador=new Jugador();
-        tiempo=new Tiempo();
-        tiempo.iniciar();
+        juego.iniciarPartida();
         primeraCartaSeleccionada=false;
         esperandoComparacion=false;
-        juegoActivo=true;
     }
     private void finalizarJuego() {
-        juegoActivo = false;
-        tiempo.detener();
+        juego.finalizarPartida();
     }
     public void reiniciarPartida(){
         iniciarPartida();
     }
     
     public void cambiarNivel(Nivel nivel){
-        this.nivelActual=nivel;
-        iniciarPartida();
+        juego.cambiarNivel(nivel);
+        primeraCartaSeleccionada=false;
+        esperandoComparacion=false;
     }
       private void verificarPareja(){
-        Carta carta1=tablero.obtenerCarta(filaCarta1, columnaCarta1);
-        Carta carta2=tablero.obtenerCarta(filaCarta2, columnaCarta2);
-        jugador.aumentarIntentos();
-        if (tablero.compararCartas(carta1, carta2)){
+        Carta carta1=juego.getTablero().obtenerCarta(filaCarta1, columnaCarta1);
+        Carta carta2=juego.getTablero().obtenerCarta(filaCarta2, columnaCarta2);
+        juego.getJugador().aumentarIntentos();
+        if (juego.getTablero().compararCartas(carta1, carta2)){
             carta1.marcarEncontrada();
             carta2.marcarEncontrada();
-            jugador.registrarParejaEncontrada();
+            juego.getJugador().registrarParejaEncontrada();
             primeraCartaSeleccionada=false;
             esperandoComparacion=false;
-            if (tablero.juegoTerminado()){
+            if (juego.getTablero().juegoTerminado()){
                 finalizarJuego();
             }
         }else{
@@ -107,7 +104,7 @@ public class ControladorJuego {
         if (esperandoComparacion){
             return;
         }
-        Carta carta=tablero.obtenerCarta(fila, columna);
+        Carta carta=juego.getTablero().obtenerCarta(fila, columna);
         if (carta.isEncontrada()||carta.isVisible()){
             return;
         }
