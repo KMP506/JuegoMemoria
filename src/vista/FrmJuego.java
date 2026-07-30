@@ -196,7 +196,16 @@ public class FrmJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
-        // TODO add your handling code here:
+     String nivelSeleccionado;
+     
+     nivelSeleccionado=cmbNivel.getSelectedItem().toString();
+     if(nivelSeleccionado.equals("PRINCIPIANTE")){
+         crearTablero(4,4);
+     }else if (nivelSeleccionado.equals("INTERMEDIO")){
+         crearTablero(4,8);
+     }else if (nivelSeleccionado.equals("AVANZADO")){
+         crearTablero(8,8);
+     }
     }//GEN-LAST:event_cmbNivelActionPerformed
 
     /**
