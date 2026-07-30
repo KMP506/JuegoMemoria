@@ -24,6 +24,7 @@ public class Tiempo {
 
     public boolean isActivo() {
         return activo;
+        
     }
     
     public void iniciar(){
