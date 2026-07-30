@@ -15,6 +15,10 @@ public class Juego {
     private Tiempo tiempo;
     private Nivel nivelActual;
     private boolean juegoActivo;
+    private Carta primeraCarta;
+    private Carta segundaCarta;
+    private boolean comparacion;
+    
 
     public Tablero getTablero() {
         return tablero;
@@ -51,6 +55,9 @@ public class Juego {
         this.tiempo.reiniciar();
         this.tiempo.iniciar();
         this.juegoActivo=true;
+        this.primeraCarta=null;
+        this.segundaCarta=null;
+        this.comparacion=false;
     }
     
     public void reiniciarPartida(){
@@ -67,6 +74,33 @@ public class Juego {
         this.tiempo.detener();
     }
     
+    public boolean seleccionarCarta(int fila, int columna){
+        if (this.juegoActivo==false){
+            return false;
+        }
+        if (this.comparacion==true){
+            return false;
+        }
+        Carta cartaSeleccionada;
+        
+        cartaSeleccionada=this.tablero.obtenerCarta(fila,columna);
+        if (cartaSeleccionada.isEncontrada()==true){
+            return false;
+        }
+        if (cartaSeleccionada.isVisible()==true){
+            return false;
+        }
+        
+        cartaSeleccionada.mostrar();
+        if(this.primeraCarta==null){
+            this.primeraCarta=cartaSeleccionada;
+        }else{
+            this.segundaCarta=cartaSeleccionada;
+            this.comparacion=true;
+        }
+        return true;
+    }
+    
     public int getTotalParejas() {
     return this.nivelActual.getCantidadParejas();
 }
@@ -76,23 +110,35 @@ public class Juego {
 }
 
     public int getParejasFaltantes() {
-int faltantes;
-faltantes = this.getTotalParejas()
-- this.getParejasEncontradas();
-return faltantes;
+     int faltantes;
+      faltantes = this.getTotalParejas()-this.getParejasEncontradas();
+      return faltantes;
 }
 
     public int getPuntaje() {
- return this.jugador.getPuntaje();
+       return this.jugador.getPuntaje();
 }
 
     public int getIntentos() {
-return this.jugador.getIntentos();
+      return this.jugador.getIntentos();
 }
 
     public String getTiempoPartida() {
-return this.tiempo.getTiempoFormateado();
+       return this.tiempo.getTiempoFormateado();
 }
+
+    public Carta getPrimeraCarta() {
+        return primeraCarta;
+    }
+
+    public Carta getSegundaCarta() {
+        return segundaCarta;
+    }
+
+    public boolean isComparacion() {
+        return comparacion;
+    }
+    
     
    
 }
