@@ -115,7 +115,10 @@ public class Juego {
             segundaCarta=null;
             comparacion=false;
             
-            
+           if(tablero.juegoTerminado()== true){
+               finalizarPartida();
+           } 
+           return true;
         }
         return false;
     }
