@@ -28,21 +28,146 @@ public class FrmJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlPanel = new javax.swing.JPanel();
+        lblPuntajerValor = new javax.swing.JLabel();
+        cmbNivel = new javax.swing.JComboBox<>();
+        lblTiempo = new javax.swing.JLabel();
+        lblNivel = new javax.swing.JLabel();
+        lblTiempoValor = new javax.swing.JLabel();
+        lblPuntaje = new javax.swing.JLabel();
+        lblIntentosValor = new javax.swing.JLabel();
+        lblParejas = new javax.swing.JLabel();
+        lblParejasValor = new javax.swing.JLabel();
+        lblIntentos3 = new javax.swing.JLabel();
+        pnlTablero = new javax.swing.JPanel();
+        btnReiniciar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblPuntajerValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblPuntajerValor.setText("0");
+
+        cmbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblTiempo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTiempo.setText("Tiempo:");
+
+        lblNivel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblNivel.setText("Nivel:");
+
+        lblTiempoValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTiempoValor.setText("00:00");
+
+        lblPuntaje.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblPuntaje.setText("Puntaje:");
+
+        lblIntentosValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblIntentosValor.setText("0");
+
+        lblParejas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblParejas.setText("Parejas Encontradas:");
+
+        lblParejasValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblParejasValor.setText("0");
+
+        lblIntentos3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblIntentos3.setText("Intentos:");
+
+        pnlTablero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout pnlTableroLayout = new javax.swing.GroupLayout(pnlTablero);
+        pnlTablero.setLayout(pnlTableroLayout);
+        pnlTableroLayout.setHorizontalGroup(
+            pnlTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnlTableroLayout.setVerticalGroup(
+            pnlTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 507, Short.MAX_VALUE)
+        );
+
+        btnReiniciar.setText("REINICIAR");
+        btnReiniciar.addActionListener(this::btnReiniciarActionPerformed);
+
+        javax.swing.GroupLayout pnlPanelLayout = new javax.swing.GroupLayout(pnlPanel);
+        pnlPanel.setLayout(pnlPanelLayout);
+        pnlPanelLayout.setHorizontalGroup(
+            pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPanelLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(lblNivel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                        .addComponent(lblIntentos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblIntentosValor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPuntaje)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPuntajerValor))
+                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                        .addComponent(lblParejas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblParejasValor)
+                        .addGap(0, 126, Short.MAX_VALUE)))
+                .addGap(87, 87, 87)
+                .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                        .addComponent(lblTiempo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTiempoValor))
+                    .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73))
+            .addComponent(pnlTablero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlPanelLayout.setVerticalGroup(
+            pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                        .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIntentos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblIntentosValor)
+                            .addComponent(lblTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                            .addComponent(lblTiempoValor)
+                            .addComponent(lblPuntaje)
+                            .addComponent(lblPuntajerValor))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblParejasValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblParejas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnReiniciar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlPanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(pnlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbNivel))))
+                .addGap(37, 37, 37)
+                .addComponent(pnlTablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +195,18 @@ public class FrmJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnReiniciar;
+    private javax.swing.JComboBox<String> cmbNivel;
+    private javax.swing.JLabel lblIntentos3;
+    private javax.swing.JLabel lblIntentosValor;
+    private javax.swing.JLabel lblNivel;
+    private javax.swing.JLabel lblParejas;
+    private javax.swing.JLabel lblParejasValor;
+    private javax.swing.JLabel lblPuntaje;
+    private javax.swing.JLabel lblPuntajerValor;
+    private javax.swing.JLabel lblTiempo;
+    private javax.swing.JLabel lblTiempoValor;
+    private javax.swing.JPanel pnlPanel;
+    private javax.swing.JPanel pnlTablero;
     // End of variables declaration//GEN-END:variables
 }
