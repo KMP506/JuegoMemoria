@@ -4,10 +4,6 @@
  */
 package vista;
 import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 
 
 /**
@@ -16,7 +12,7 @@ import javax.swing.JButton;
  */
 public class FrmJuego extends javax.swing.JFrame {
     
-    private JButton[][] botonesCartas;
+   private javax.swing.JButton[] btns;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmJuego.class.getName());
 
@@ -25,8 +21,26 @@ public class FrmJuego extends javax.swing.JFrame {
      */
     public FrmJuego() {
         initComponents();
-        crearTablero(4, 4);
-       pack();
+        
+        btns= new javax.swing.JButton[16];
+        
+        btns[0]=btnP1;
+        btns[1]=btnP2;
+        btns[2]=btnP3;
+        btns[3]=btnP4;
+        btns[4]=btnP5;
+        btns[5]=btnP6;
+        btns[6]=btnP7;
+        btns[7]=btnP8;
+        btns[8]=btnP9;
+        btns[9]=btnP10;
+        btns[10]=btnP11;
+        btns[11]=btnP12;
+        btns[12]=btnP13;
+        btns[13]=btnP14;
+        btns[14]=btnP15;
+        btns[15]=btnP16;
+        
        setLocationRelativeTo(null);
     }
     
@@ -37,52 +51,8 @@ public class FrmJuego extends javax.swing.JFrame {
     lblParejasValor.setText("0");
     lblTiempoValor.setText("00:00");
 }
-    
-    
-    public void crearTableroSegunNivel(){
-         String nivelSeleccionado;
      
-     nivelSeleccionado=cmbNivel.getSelectedItem().toString();
-     if(nivelSeleccionado.equals("PRINCIPIANTE")){
-         crearTablero(4,4);
-     }else if (nivelSeleccionado.equals("INTERMEDIO")){
-         crearTablero(4,8);
-     }else if (nivelSeleccionado.equals("AVANZADO")){
-         crearTablero(8,8);
-     }
-    }
-    public void crearTablero(int filas, int columnas){
-        
-        pnlTablero.removeAll();
-        pnlTablero.setLayout(new GridLayout(filas, columnas));
-        botonesCartas= new JButton[filas][columnas];
-        
-        for(int fila=0; fila<filas; fila++){
-            for(int columna=0; columna<columnas; columna++){
-                botonesCartas[fila][columna]= new JButton();
-                
-                final int filaSeleccionada=fila;
-                final int columnaSeleccionada=columna;
-                
-                botonesCartas[fila][columna].addActionListener(new ActionListener(){
-                    
-                    @Override
-                    public void actionPerformed(ActionEvent evento){
-                        seleccionarCarta(filaSeleccionada, columnaSeleccionada);
-                    }
-                });
-                pnlTablero.add(botonesCartas[fila][columna]);
-            }
-        }
-        
-        pnlTablero.revalidate();
-        pnlTablero.repaint();
-    }
-    
-    public void seleccionarCarta(int fila, int columna){
-        botonesCartas[fila][columna].setBackground(Color.CYAN);
-    }
-
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,7 +64,26 @@ public class FrmJuego extends javax.swing.JFrame {
 
         pnlPrincipal = new javax.swing.JPanel();
         pnlTablero = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        pnlPrincipiante = new javax.swing.JPanel();
+        btnP1 = new javax.swing.JButton();
+        btnP2 = new javax.swing.JButton();
+        btnP3 = new javax.swing.JButton();
+        btnP4 = new javax.swing.JButton();
+        btnP5 = new javax.swing.JButton();
+        btnP6 = new javax.swing.JButton();
+        btnP7 = new javax.swing.JButton();
+        btnP8 = new javax.swing.JButton();
+        btnP9 = new javax.swing.JButton();
+        btnP10 = new javax.swing.JButton();
+        btnP11 = new javax.swing.JButton();
+        btnP12 = new javax.swing.JButton();
+        btnP13 = new javax.swing.JButton();
+        btnP14 = new javax.swing.JButton();
+        btnP15 = new javax.swing.JButton();
+        btnP16 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        pnlInformacion = new javax.swing.JPanel();
         lblTiempo = new javax.swing.JLabel();
         cmbNivel = new javax.swing.JComboBox<>();
         lblPuntajeValor = new javax.swing.JLabel();
@@ -109,28 +98,95 @@ public class FrmJuego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1050, 750));
-        setPreferredSize(new java.awt.Dimension(1050, 750));
         setResizable(false);
 
         pnlTablero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pnlTablero.setMinimumSize(new java.awt.Dimension(600, 350));
         pnlTablero.setPreferredSize(new java.awt.Dimension(1000, 500));
+        pnlTablero.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout pnlTableroLayout = new javax.swing.GroupLayout(pnlTablero);
-        pnlTablero.setLayout(pnlTableroLayout);
-        pnlTableroLayout.setHorizontalGroup(
-            pnlTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        pnlPrincipiante.setLayout(new java.awt.GridLayout(4, 4));
+
+        btnP1.addActionListener(this::btnP1ActionPerformed);
+        pnlPrincipiante.add(btnP1);
+
+        btnP2.addActionListener(this::btnP2ActionPerformed);
+        pnlPrincipiante.add(btnP2);
+
+        btnP3.addActionListener(this::btnP3ActionPerformed);
+        pnlPrincipiante.add(btnP3);
+
+        btnP4.addActionListener(this::btnP4ActionPerformed);
+        pnlPrincipiante.add(btnP4);
+
+        btnP5.addActionListener(this::btnP5ActionPerformed);
+        pnlPrincipiante.add(btnP5);
+
+        btnP6.addActionListener(this::btnP6ActionPerformed);
+        pnlPrincipiante.add(btnP6);
+
+        btnP7.addActionListener(this::btnP7ActionPerformed);
+        pnlPrincipiante.add(btnP7);
+
+        btnP8.addActionListener(this::btnP8ActionPerformed);
+        pnlPrincipiante.add(btnP8);
+
+        btnP9.addActionListener(this::btnP9ActionPerformed);
+        pnlPrincipiante.add(btnP9);
+
+        btnP10.addActionListener(this::btnP10ActionPerformed);
+        pnlPrincipiante.add(btnP10);
+
+        btnP11.addActionListener(this::btnP11ActionPerformed);
+        pnlPrincipiante.add(btnP11);
+
+        btnP12.addActionListener(this::btnP12ActionPerformed);
+        pnlPrincipiante.add(btnP12);
+
+        btnP13.addActionListener(this::btnP13ActionPerformed);
+        pnlPrincipiante.add(btnP13);
+
+        btnP14.addActionListener(this::btnP14ActionPerformed);
+        pnlPrincipiante.add(btnP14);
+
+        btnP15.addActionListener(this::btnP15ActionPerformed);
+        pnlPrincipiante.add(btnP15);
+
+        btnP16.addActionListener(this::btnP16ActionPerformed);
+        pnlPrincipiante.add(btnP16);
+
+        pnlTablero.add(pnlPrincipiante, "card2");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1500, Short.MAX_VALUE)
         );
-        pnlTableroLayout.setVerticalGroup(
-            pnlTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setMaximumSize(new java.awt.Dimension(32767, 170));
-        jPanel1.setMinimumSize(new java.awt.Dimension(600, 170));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 170));
+        pnlTablero.add(jPanel2, "card3");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1500, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
+        );
+
+        pnlTablero.add(jPanel3, "card4");
+
+        pnlInformacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlInformacion.setMaximumSize(new java.awt.Dimension(32767, 170));
+        pnlInformacion.setMinimumSize(new java.awt.Dimension(600, 170));
+        pnlInformacion.setPreferredSize(new java.awt.Dimension(1000, 170));
 
         lblTiempo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTiempo.setText("Tiempo:");
@@ -165,70 +221,70 @@ public class FrmJuego extends javax.swing.JFrame {
         btnReiniciar.setText("REINICIAR");
         btnReiniciar.addActionListener(this::btnReiniciarActionPerformed);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlInformacionLayout = new javax.swing.GroupLayout(pnlInformacion);
+        pnlInformacion.setLayout(pnlInformacionLayout);
+        pnlInformacionLayout.setHorizontalGroup(
+            pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInformacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacionLayout.createSequentialGroup()
                         .addComponent(lblNivel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(pnlInformacionLayout.createSequentialGroup()
                         .addComponent(lblIntentos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblIntentosValor)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 569, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacionLayout.createSequentialGroup()
                         .addComponent(lblPuntaje)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPuntajeValor))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(pnlInformacionLayout.createSequentialGroup()
                         .addComponent(lblParejas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblParejasValor)))
                 .addGap(188, 188, 188)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacionLayout.createSequentialGroup()
                         .addComponent(lblTiempo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTiempoValor))
                     .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(147, 147, 147))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlInformacionLayout.setVerticalGroup(
+            pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInformacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacionLayout.createSequentialGroup()
+                        .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(cmbNivel)
                                 .addComponent(lblNivel))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblTiempoValor)
                                 .addComponent(lblTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlInformacionLayout.createSequentialGroup()
                                 .addGap(59, 59, 59)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblIntentos)
                                     .addComponent(lblIntentosValor))
                                 .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionLayout.createSequentialGroup()
+                        .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPuntajeValor)
                             .addComponent(lblPuntaje))
                         .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblParejasValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblParejas))
                         .addContainerGap())))
@@ -239,12 +295,12 @@ public class FrmJuego extends javax.swing.JFrame {
         pnlPrincipalLayout.setHorizontalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlTablero, javax.swing.GroupLayout.DEFAULT_SIZE, 1504, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1504, Short.MAX_VALUE)
+            .addComponent(pnlInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 1504, Short.MAX_VALUE)
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -265,13 +321,77 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         reiniciarValores();
-        crearTableroSegunNivel();
+        
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
 
-        crearTableroSegunNivel();
+        
     }//GEN-LAST:event_cmbNivelActionPerformed
+
+    private void btnP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP1ActionPerformed
+
+    private void btnP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP2ActionPerformed
+
+    private void btnP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP3ActionPerformed
+
+    private void btnP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP4ActionPerformed
+
+    private void btnP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP5ActionPerformed
+
+    private void btnP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP6ActionPerformed
+
+    private void btnP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP7ActionPerformed
+
+    private void btnP8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP8ActionPerformed
+
+    private void btnP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP9ActionPerformed
+
+    private void btnP10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP10ActionPerformed
+
+    private void btnP11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP11ActionPerformed
+
+    private void btnP12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP12ActionPerformed
+
+    private void btnP13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP13ActionPerformed
+
+    private void btnP14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP14ActionPerformed
+
+    private void btnP15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP15ActionPerformed
+
+    private void btnP16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnP16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,9 +419,26 @@ public class FrmJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnP1;
+    private javax.swing.JButton btnP10;
+    private javax.swing.JButton btnP11;
+    private javax.swing.JButton btnP12;
+    private javax.swing.JButton btnP13;
+    private javax.swing.JButton btnP14;
+    private javax.swing.JButton btnP15;
+    private javax.swing.JButton btnP16;
+    private javax.swing.JButton btnP2;
+    private javax.swing.JButton btnP3;
+    private javax.swing.JButton btnP4;
+    private javax.swing.JButton btnP5;
+    private javax.swing.JButton btnP6;
+    private javax.swing.JButton btnP7;
+    private javax.swing.JButton btnP8;
+    private javax.swing.JButton btnP9;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JComboBox<String> cmbNivel;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblIntentos;
     private javax.swing.JLabel lblIntentosValor;
     private javax.swing.JLabel lblNivel;
@@ -311,7 +448,9 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblPuntajeValor;
     private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblTiempoValor;
+    private javax.swing.JPanel pnlInformacion;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPanel pnlPrincipiante;
     private javax.swing.JPanel pnlTablero;
     // End of variables declaration//GEN-END:variables
 }
