@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
@@ -25,22 +28,49 @@ public class FrmJuego extends javax.swing.JFrame {
         crearTablero(4, 4);
     }
     
+    
+    public void crearTableroSegunNivel(){
+         String nivelSeleccionado;
+     
+     nivelSeleccionado=cmbNivel.getSelectedItem().toString();
+     if(nivelSeleccionado.equals("PRINCIPIANTE")){
+         crearTablero(4,4);
+     }else if (nivelSeleccionado.equals("INTERMEDIO")){
+         crearTablero(4,8);
+     }else if (nivelSeleccionado.equals("AVANZADO")){
+         crearTablero(8,8);
+     }
+    }
     public void crearTablero(int filas, int columnas){
         
         pnlTablero.removeAll();
         pnlTablero.setLayout(new GridLayout(filas, columnas));
         botonesCartas= new JButton[filas][columnas];
         
-        for(int fila=0; fila<filas; filas++){
+        for(int fila=0; fila<filas; fila++){
             for(int columna=0; columna<columnas; columna++){
                 botonesCartas[fila][columna]= new JButton("?");
                 
+                final int filaSeleccionada=fila;
+                final int columnaSeleccionada=columna;
+                
+                botonesCartas[fila][columna].addActionListener(new ActionListener(){
+                    
+                    @Override
+                    public void actionPerformed(ActionEvent evento){
+                        seleccionarCarta(filaSeleccionada, columnaSeleccionada);
+                    }
+                });
                 pnlTablero.add(botonesCartas[fila][columna]);
             }
         }
         
         pnlTablero.revalidate();
         pnlTablero.repaint();
+    }
+    
+    public void seleccionarCarta(int fila, int columna){
+        botonesCartas[fila][columna].setBackground(Color.CYAN);
     }
 
     /**
@@ -53,7 +83,7 @@ public class FrmJuego extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlPrincipal = new javax.swing.JPanel();
-        lblPuntajerValor = new javax.swing.JLabel();
+        lblPuntajeValor = new javax.swing.JLabel();
         cmbNivel = new javax.swing.JComboBox<>();
         lblTiempo = new javax.swing.JLabel();
         lblNivel = new javax.swing.JLabel();
@@ -68,8 +98,8 @@ public class FrmJuego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblPuntajerValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblPuntajerValor.setText("0");
+        lblPuntajeValor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblPuntajeValor.setText("0");
 
         cmbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PRINCIPIANTE", "INTERMEDIO", "AVANZADO" }));
         cmbNivel.addActionListener(this::cmbNivelActionPerformed);
@@ -132,7 +162,7 @@ public class FrmJuego extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblPuntaje)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPuntajerValor))
+                        .addComponent(lblPuntajeValor))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addComponent(lblParejas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,7 +190,7 @@ public class FrmJuego extends javax.swing.JFrame {
                                 .addComponent(lblIntentosValor)
                                 .addComponent(lblTiempoValor)
                                 .addComponent(lblPuntaje)
-                                .addComponent(lblPuntajerValor))
+                                .addComponent(lblPuntajeValor))
                             .addComponent(lblTiempo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -196,16 +226,8 @@ public class FrmJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
-     String nivelSeleccionado;
-     
-     nivelSeleccionado=cmbNivel.getSelectedItem().toString();
-     if(nivelSeleccionado.equals("PRINCIPIANTE")){
-         crearTablero(4,4);
-     }else if (nivelSeleccionado.equals("INTERMEDIO")){
-         crearTablero(4,8);
-     }else if (nivelSeleccionado.equals("AVANZADO")){
-         crearTablero(8,8);
-     }
+
+        crearTableroSegunNivel();
     }//GEN-LAST:event_cmbNivelActionPerformed
 
     /**
@@ -242,7 +264,7 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblParejas;
     private javax.swing.JLabel lblParejasValor;
     private javax.swing.JLabel lblPuntaje;
-    private javax.swing.JLabel lblPuntajerValor;
+    private javax.swing.JLabel lblPuntajeValor;
     private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblTiempoValor;
     private javax.swing.JPanel pnlPrincipal;
