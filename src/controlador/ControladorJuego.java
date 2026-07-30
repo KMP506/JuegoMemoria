@@ -28,6 +28,11 @@ public class ControladorJuego {
     private boolean esperandoComparacion;
     private boolean juegoActivo;
     
+       public ControladorJuego(Nivel nivel){
+        this.nivelActual=nivel;
+        iniciarPartida();
+    }
+    
     public Tablero getTablero(){
         return this.tablero;
     }
@@ -121,10 +126,6 @@ public class ControladorJuego {
             esperandoComparacion=true;
             verificarPareja();
         }
-    }
-    public ControladorJuego(Nivel nivel){
-        this.nivelActual=nivel;
-        iniciarPartida();
     }
 }  
   
