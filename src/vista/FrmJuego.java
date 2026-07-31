@@ -124,12 +124,21 @@ public class FrmJuego extends javax.swing.JFrame {
    
         controlador=new ControladorJuego(Nivel.PRINCIPIANTE,this);
         mostrarTableroSegunNIvel();
-       setLocationRelativeTo(null);
+       setLocationRelativeTo(null); 
        
-       
-       
-       
-       
+    }
+    
+    public void cambiarNivelJuego(){
+        int opcion;
+        
+        opcion=cmbNivel.getSelectedIndex();
+        if(opcion==0){
+            controlador.cambiarNivel(Nivel.PRINCIPIANTE);
+        }else if(opcion==1){
+            controlador.cambiarNivel(Nivel.INTERMEDIO);
+        }else if(opcion==2){
+            controlador.cambiarNivel(Nivel.AVANZADO);
+        }
     }
     
     public void mostrarTableroSegunNIvel(){

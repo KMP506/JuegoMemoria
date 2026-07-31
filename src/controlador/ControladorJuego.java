@@ -49,7 +49,7 @@ public class ControladorJuego {
     }
     
     public void reiniciarPartida(){
-        this.juego.iniciarPartida();
+        this.juego.reiniciarPartida();
         this.vista.reiniciarValores();
     }
     
