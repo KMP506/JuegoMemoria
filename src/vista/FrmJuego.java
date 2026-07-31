@@ -13,6 +13,7 @@ import modelo.Nivel;
 public class FrmJuego extends javax.swing.JFrame {
     
    private javax.swing.JButton[] botonesPrincipiante;
+  private javax.swing.JButton[] botonesIntermedio;
    private ControladorJuego controlador;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmJuego.class.getName());
@@ -41,10 +42,52 @@ public class FrmJuego extends javax.swing.JFrame {
         botonesPrincipiante[13]=btnP14;
         botonesPrincipiante[14]=btnP15;
         botonesPrincipiante[15]=btnP16;
+         
+         botonesIntermedio= new javax.swing.JButton[32];
         
+         botonesIntermedio[0]=btnI1;
+         botonesIntermedio[1]=btnI2;
+         botonesIntermedio[2]=btnI3;
+         botonesIntermedio[3]=btnI4;
+         botonesIntermedio[4]=btnI5;
+         botonesIntermedio[5]=btnI6;
+         botonesIntermedio[6]=btnI7;
+         botonesIntermedio[7]=btnI8;
+         botonesIntermedio[8]=btnI9;
+         botonesIntermedio[9]=btnI10;
+         botonesIntermedio[10]=btnI11;
+         botonesIntermedio[11]=btnI12;
+         botonesIntermedio[12]=btnI13;
+         botonesIntermedio[13]=btnI14;
+         botonesIntermedio[14]=btnI15;
+         botonesIntermedio[15]=btnI16;
+         botonesIntermedio[16]=btnI17;
+         botonesIntermedio[17]=btnI18;
+         botonesIntermedio[18]=btnI19;
+         botonesIntermedio[19]=btnI20;
+         botonesIntermedio[20]=btnI21;
+         botonesIntermedio[21]=btnI22;
+         botonesIntermedio[22]=btnI23;
+         botonesIntermedio[23]=btnI24;
+         botonesIntermedio[24]=btnI25;
+         botonesIntermedio[25]=btnI26;
+         botonesIntermedio[26]=btnI27;
+         botonesIntermedio[27]=btnI28;
+         botonesIntermedio[28]=btnI29;
+         botonesIntermedio[29]=btnI30;
+         botonesIntermedio[30]=btnI31;
+         botonesIntermedio[31]=btnI32;
+     
+         
+   
         controlador=new ControladorJuego(Nivel.PRINCIPIANTE,this);
         mostrarTableroSegunNIvel();
        setLocationRelativeTo(null);
+       
+       
+       
+       
+       
     }
     
     public void mostrarTableroSegunNIvel(){
@@ -103,6 +146,38 @@ public class FrmJuego extends javax.swing.JFrame {
         btnP15 = new javax.swing.JButton();
         btnP16 = new javax.swing.JButton();
         pnlIntermedio = new javax.swing.JPanel();
+        btnI1 = new javax.swing.JButton();
+        btnI2 = new javax.swing.JButton();
+        btnI3 = new javax.swing.JButton();
+        btnI4 = new javax.swing.JButton();
+        btnI5 = new javax.swing.JButton();
+        btnI6 = new javax.swing.JButton();
+        btnI7 = new javax.swing.JButton();
+        btnI8 = new javax.swing.JButton();
+        btnI9 = new javax.swing.JButton();
+        btnI10 = new javax.swing.JButton();
+        btnI11 = new javax.swing.JButton();
+        btnI12 = new javax.swing.JButton();
+        btnI13 = new javax.swing.JButton();
+        btnI14 = new javax.swing.JButton();
+        btnI15 = new javax.swing.JButton();
+        btnI16 = new javax.swing.JButton();
+        btnI17 = new javax.swing.JButton();
+        btnI18 = new javax.swing.JButton();
+        btnI19 = new javax.swing.JButton();
+        btnI20 = new javax.swing.JButton();
+        btnI21 = new javax.swing.JButton();
+        btnI22 = new javax.swing.JButton();
+        btnI23 = new javax.swing.JButton();
+        btnI24 = new javax.swing.JButton();
+        btnI25 = new javax.swing.JButton();
+        btnI26 = new javax.swing.JButton();
+        btnI27 = new javax.swing.JButton();
+        btnI28 = new javax.swing.JButton();
+        btnI29 = new javax.swing.JButton();
+        btnI30 = new javax.swing.JButton();
+        btnI31 = new javax.swing.JButton();
+        btnI32 = new javax.swing.JButton();
         pnlAvanzado = new javax.swing.JPanel();
         pnlInformacion = new javax.swing.JPanel();
         lblTiempo = new javax.swing.JLabel();
@@ -178,16 +253,103 @@ public class FrmJuego extends javax.swing.JFrame {
 
         pnlTablero.add(pnlPrincipiante, "card2");
 
-        javax.swing.GroupLayout pnlIntermedioLayout = new javax.swing.GroupLayout(pnlIntermedio);
-        pnlIntermedio.setLayout(pnlIntermedioLayout);
-        pnlIntermedioLayout.setHorizontalGroup(
-            pnlIntermedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1500, Short.MAX_VALUE)
-        );
-        pnlIntermedioLayout.setVerticalGroup(
-            pnlIntermedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
+        pnlIntermedio.setLayout(new java.awt.GridLayout(4, 8, 2, 2));
+
+        btnI1.addActionListener(this::btnI1ActionPerformed);
+        pnlIntermedio.add(btnI1);
+
+        btnI2.addActionListener(this::btnI2ActionPerformed);
+        pnlIntermedio.add(btnI2);
+
+        btnI3.addActionListener(this::btnI3ActionPerformed);
+        pnlIntermedio.add(btnI3);
+
+        btnI4.addActionListener(this::btnI4ActionPerformed);
+        pnlIntermedio.add(btnI4);
+
+        btnI5.addActionListener(this::btnI5ActionPerformed);
+        pnlIntermedio.add(btnI5);
+
+        btnI6.addActionListener(this::btnI6ActionPerformed);
+        pnlIntermedio.add(btnI6);
+
+        btnI7.addActionListener(this::btnI7ActionPerformed);
+        pnlIntermedio.add(btnI7);
+
+        btnI8.addActionListener(this::btnI8ActionPerformed);
+        pnlIntermedio.add(btnI8);
+
+        btnI9.addActionListener(this::btnI9ActionPerformed);
+        pnlIntermedio.add(btnI9);
+
+        btnI10.addActionListener(this::btnI10ActionPerformed);
+        pnlIntermedio.add(btnI10);
+
+        btnI11.addActionListener(this::btnI11ActionPerformed);
+        pnlIntermedio.add(btnI11);
+
+        btnI12.addActionListener(this::btnI12ActionPerformed);
+        pnlIntermedio.add(btnI12);
+
+        btnI13.addActionListener(this::btnI13ActionPerformed);
+        pnlIntermedio.add(btnI13);
+
+        btnI14.addActionListener(this::btnI14ActionPerformed);
+        pnlIntermedio.add(btnI14);
+
+        btnI15.addActionListener(this::btnI15ActionPerformed);
+        pnlIntermedio.add(btnI15);
+
+        btnI16.addActionListener(this::btnI16ActionPerformed);
+        pnlIntermedio.add(btnI16);
+
+        btnI17.addActionListener(this::btnI17ActionPerformed);
+        pnlIntermedio.add(btnI17);
+
+        btnI18.addActionListener(this::btnI18ActionPerformed);
+        pnlIntermedio.add(btnI18);
+
+        btnI19.addActionListener(this::btnI19ActionPerformed);
+        pnlIntermedio.add(btnI19);
+
+        btnI20.addActionListener(this::btnI20ActionPerformed);
+        pnlIntermedio.add(btnI20);
+
+        btnI21.addActionListener(this::btnI21ActionPerformed);
+        pnlIntermedio.add(btnI21);
+
+        btnI22.addActionListener(this::btnI22ActionPerformed);
+        pnlIntermedio.add(btnI22);
+
+        btnI23.addActionListener(this::btnI23ActionPerformed);
+        pnlIntermedio.add(btnI23);
+
+        btnI24.addActionListener(this::btnI24ActionPerformed);
+        pnlIntermedio.add(btnI24);
+
+        btnI25.addActionListener(this::btnI25ActionPerformed);
+        pnlIntermedio.add(btnI25);
+
+        btnI26.addActionListener(this::btnI26ActionPerformed);
+        pnlIntermedio.add(btnI26);
+
+        btnI27.addActionListener(this::btnI27ActionPerformed);
+        pnlIntermedio.add(btnI27);
+
+        btnI28.addActionListener(this::btnI28ActionPerformed);
+        pnlIntermedio.add(btnI28);
+
+        btnI29.addActionListener(this::btnI29ActionPerformed);
+        pnlIntermedio.add(btnI29);
+
+        btnI30.addActionListener(this::btnI30ActionPerformed);
+        pnlIntermedio.add(btnI30);
+
+        btnI31.addActionListener(this::btnI31ActionPerformed);
+        pnlIntermedio.add(btnI31);
+
+        btnI32.addActionListener(this::btnI32ActionPerformed);
+        pnlIntermedio.add(btnI32);
 
         pnlTablero.add(pnlIntermedio, "card3");
 
@@ -413,6 +575,133 @@ public class FrmJuego extends javax.swing.JFrame {
         seleccionarCarta(3,3);
     }//GEN-LAST:event_btnP16ActionPerformed
 
+    private void btnI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI1ActionPerformed
+        seleccionarCarta(0,0);                                
+    }//GEN-LAST:event_btnI1ActionPerformed
+
+    private void btnI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI2ActionPerformed
+        seleccionarCarta(0,1);                                 
+    }//GEN-LAST:event_btnI2ActionPerformed
+
+    private void btnI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI3ActionPerformed
+        seleccionarCarta(0,2);       }//GEN-LAST:event_btnI3ActionPerformed
+
+    private void btnI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI4ActionPerformed
+        seleccionarCarta(0,3);   
+    }//GEN-LAST:event_btnI4ActionPerformed
+
+    private void btnI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI5ActionPerformed
+        seleccionarCarta(0,4);   
+    }//GEN-LAST:event_btnI5ActionPerformed
+
+    private void btnI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI6ActionPerformed
+        seleccionarCarta(0,5);   
+    }//GEN-LAST:event_btnI6ActionPerformed
+
+    private void btnI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI7ActionPerformed
+        seleccionarCarta(0,6);   
+    }//GEN-LAST:event_btnI7ActionPerformed
+
+    private void btnI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI8ActionPerformed
+        seleccionarCarta(0,7);   
+    }//GEN-LAST:event_btnI8ActionPerformed
+
+    private void btnI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI9ActionPerformed
+        seleccionarCarta(1,0);   
+    }//GEN-LAST:event_btnI9ActionPerformed
+
+    private void btnI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI10ActionPerformed
+        seleccionarCarta(1,1);   
+    }//GEN-LAST:event_btnI10ActionPerformed
+
+    private void btnI11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI11ActionPerformed
+        seleccionarCarta(1,2);   
+    }//GEN-LAST:event_btnI11ActionPerformed
+
+    private void btnI12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI12ActionPerformed
+        seleccionarCarta(1,3);   
+    }//GEN-LAST:event_btnI12ActionPerformed
+
+    private void btnI13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI13ActionPerformed
+        seleccionarCarta(1,4);   
+    }//GEN-LAST:event_btnI13ActionPerformed
+
+    private void btnI14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI14ActionPerformed
+        seleccionarCarta(1,5);   
+    }//GEN-LAST:event_btnI14ActionPerformed
+
+    private void btnI15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI15ActionPerformed
+        seleccionarCarta(1,6);   
+    }//GEN-LAST:event_btnI15ActionPerformed
+
+    private void btnI16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI16ActionPerformed
+        seleccionarCarta(1,7);   
+    }//GEN-LAST:event_btnI16ActionPerformed
+
+    private void btnI17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI17ActionPerformed
+        seleccionarCarta(2,0);   
+    }//GEN-LAST:event_btnI17ActionPerformed
+
+    private void btnI18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI18ActionPerformed
+        seleccionarCarta(2,1);   
+    }//GEN-LAST:event_btnI18ActionPerformed
+
+    private void btnI19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI19ActionPerformed
+        seleccionarCarta(2,2);   
+    }//GEN-LAST:event_btnI19ActionPerformed
+
+    private void btnI20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI20ActionPerformed
+        seleccionarCarta(2,3);   
+    }//GEN-LAST:event_btnI20ActionPerformed
+
+    private void btnI21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI21ActionPerformed
+        seleccionarCarta(2,4);   
+    }//GEN-LAST:event_btnI21ActionPerformed
+
+    private void btnI22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI22ActionPerformed
+        seleccionarCarta(2,5);   
+    }//GEN-LAST:event_btnI22ActionPerformed
+
+    private void btnI23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI23ActionPerformed
+        seleccionarCarta(2,6);   
+    }//GEN-LAST:event_btnI23ActionPerformed
+
+    private void btnI24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI24ActionPerformed
+        seleccionarCarta(2,7);   
+    }//GEN-LAST:event_btnI24ActionPerformed
+
+    private void btnI25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI25ActionPerformed
+        seleccionarCarta(3,0);   
+    }//GEN-LAST:event_btnI25ActionPerformed
+
+    private void btnI26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI26ActionPerformed
+        seleccionarCarta(3,1);   
+    }//GEN-LAST:event_btnI26ActionPerformed
+
+    private void btnI27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI27ActionPerformed
+        seleccionarCarta(3,2);   
+    }//GEN-LAST:event_btnI27ActionPerformed
+
+    private void btnI28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI28ActionPerformed
+        seleccionarCarta(3,3);   
+    }//GEN-LAST:event_btnI28ActionPerformed
+
+    private void btnI29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI29ActionPerformed
+        seleccionarCarta(3,4);   
+    }//GEN-LAST:event_btnI29ActionPerformed
+
+    private void btnI30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI30ActionPerformed
+        seleccionarCarta(3,5);   
+    }//GEN-LAST:event_btnI30ActionPerformed
+
+    private void btnI31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI31ActionPerformed
+        seleccionarCarta(3,6);   
+    }//GEN-LAST:event_btnI31ActionPerformed
+
+    private void btnI32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnI32ActionPerformed
+        seleccionarCarta(3,7);   
+    }//GEN-LAST:event_btnI32ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -439,6 +728,38 @@ public class FrmJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnI1;
+    private javax.swing.JButton btnI10;
+    private javax.swing.JButton btnI11;
+    private javax.swing.JButton btnI12;
+    private javax.swing.JButton btnI13;
+    private javax.swing.JButton btnI14;
+    private javax.swing.JButton btnI15;
+    private javax.swing.JButton btnI16;
+    private javax.swing.JButton btnI17;
+    private javax.swing.JButton btnI18;
+    private javax.swing.JButton btnI19;
+    private javax.swing.JButton btnI2;
+    private javax.swing.JButton btnI20;
+    private javax.swing.JButton btnI21;
+    private javax.swing.JButton btnI22;
+    private javax.swing.JButton btnI23;
+    private javax.swing.JButton btnI24;
+    private javax.swing.JButton btnI25;
+    private javax.swing.JButton btnI26;
+    private javax.swing.JButton btnI27;
+    private javax.swing.JButton btnI28;
+    private javax.swing.JButton btnI29;
+    private javax.swing.JButton btnI3;
+    private javax.swing.JButton btnI30;
+    private javax.swing.JButton btnI31;
+    private javax.swing.JButton btnI32;
+    private javax.swing.JButton btnI4;
+    private javax.swing.JButton btnI5;
+    private javax.swing.JButton btnI6;
+    private javax.swing.JButton btnI7;
+    private javax.swing.JButton btnI8;
+    private javax.swing.JButton btnI9;
     private javax.swing.JButton btnP1;
     private javax.swing.JButton btnP10;
     private javax.swing.JButton btnP11;
