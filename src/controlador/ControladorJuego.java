@@ -69,6 +69,7 @@ public class ControladorJuego {
             
         }
         vista.actualizarTablero();
+        vista.actualizarValores();
     }
 
     public void seleccionarCarta(int fila,int columna){

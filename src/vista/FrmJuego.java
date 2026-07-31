@@ -228,12 +228,17 @@ public class FrmJuego extends javax.swing.JFrame {
             }
             posicion++;
         }
+      }
     }
-     }
      
+    
      
-     
-     
+    public void actualizarValores(){
+    lblIntentosValor.setText(String.valueOf(controlador.getJugador().getIntentos()));
+    lblPuntajeValor.setText(String.valueOf(controlador.getJugador().getPuntaje()));
+    lblParejasValor.setText(String.valueOf(controlador.getJugador().getParejasEncontradas()));
+}
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -873,6 +878,9 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
         mostrarTableroSegunNIvel();
+        if (controlador!=null){
+            cambiarNivelJuego();
+        }
     }//GEN-LAST:event_cmbNivelActionPerformed
 
     private void btnP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP1ActionPerformed
