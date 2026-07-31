@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import java.awt.Color;
-
+import controlador.ControladorJuego;
+import modelo.Nivel;
 
 /**
  *
@@ -12,7 +12,8 @@ import java.awt.Color;
  */
 public class FrmJuego extends javax.swing.JFrame {
     
-   private javax.swing.JButton[] btns;
+   private javax.swing.JButton[] botonesPrincipiante;
+   private ControladorJuego controlador;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmJuego.class.getName());
 
@@ -22,28 +23,48 @@ public class FrmJuego extends javax.swing.JFrame {
     public FrmJuego() {
         initComponents();
         
-        btns= new javax.swing.JButton[16];
+        botonesPrincipiante= new javax.swing.JButton[16];
         
-        btns[0]=btnP1;
-        btns[1]=btnP2;
-        btns[2]=btnP3;
-        btns[3]=btnP4;
-        btns[4]=btnP5;
-        btns[5]=btnP6;
-        btns[6]=btnP7;
-        btns[7]=btnP8;
-        btns[8]=btnP9;
-        btns[9]=btnP10;
-        btns[10]=btnP11;
-        btns[11]=btnP12;
-        btns[12]=btnP13;
-        btns[13]=btnP14;
-        btns[14]=btnP15;
-        btns[15]=btnP16;
+        botonesPrincipiante[0]=btnP1;
+        botonesPrincipiante[1]=btnP2;
+        botonesPrincipiante[2]=btnP3;
+        botonesPrincipiante[3]=btnP4;
+        botonesPrincipiante[4]=btnP5;
+        botonesPrincipiante[5]=btnP6;
+        botonesPrincipiante[6]=btnP7;
+        botonesPrincipiante[7]=btnP8;
+        botonesPrincipiante[8]=btnP9;
+        botonesPrincipiante[9]=btnP10;
+        botonesPrincipiante[10]=btnP11;
+        botonesPrincipiante[11]=btnP12;
+        botonesPrincipiante[12]=btnP13;
+        botonesPrincipiante[13]=btnP14;
+        botonesPrincipiante[14]=btnP15;
+        botonesPrincipiante[15]=btnP16;
         
+        controlador=new ControladorJuego(Nivel.PRINCIPIANTE,this);
+        mostrarTableroSegunNIvel();
        setLocationRelativeTo(null);
     }
     
+    public void mostrarTableroSegunNIvel(){
+        int opcion;
+        opcion=cmbNivel.getSelectedIndex();
+        
+        pnlPrincipiante.setVisible(false);
+        pnlIntermedio.setVisible(false);
+        pnlAvanzado.setVisible(false);
+        if(opcion==0){
+            pnlPrincipiante.setVisible(true);
+        }else if(opcion== 1){
+            pnlIntermedio.setVisible(true);
+        }else if(opcion==2){
+            pnlAvanzado.setVisible(true);
+        }
+    }
+    public void seleccionarCarta(int fila, int columna){
+        controlador.seleccionarCarta(fila, columna);  
+    }
      public void reiniciarValores() {
 
     lblPuntajeValor.setText("0");
@@ -81,8 +102,8 @@ public class FrmJuego extends javax.swing.JFrame {
         btnP14 = new javax.swing.JButton();
         btnP15 = new javax.swing.JButton();
         btnP16 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        pnlIntermedio = new javax.swing.JPanel();
+        pnlAvanzado = new javax.swing.JPanel();
         pnlInformacion = new javax.swing.JPanel();
         lblTiempo = new javax.swing.JLabel();
         cmbNivel = new javax.swing.JComboBox<>();
@@ -157,31 +178,31 @@ public class FrmJuego extends javax.swing.JFrame {
 
         pnlTablero.add(pnlPrincipiante, "card2");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlIntermedioLayout = new javax.swing.GroupLayout(pnlIntermedio);
+        pnlIntermedio.setLayout(pnlIntermedioLayout);
+        pnlIntermedioLayout.setHorizontalGroup(
+            pnlIntermedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1500, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlIntermedioLayout.setVerticalGroup(
+            pnlIntermedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        pnlTablero.add(jPanel2, "card3");
+        pnlTablero.add(pnlIntermedio, "card3");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlAvanzadoLayout = new javax.swing.GroupLayout(pnlAvanzado);
+        pnlAvanzado.setLayout(pnlAvanzadoLayout);
+        pnlAvanzadoLayout.setHorizontalGroup(
+            pnlAvanzadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1500, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlAvanzadoLayout.setVerticalGroup(
+            pnlAvanzadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 540, Short.MAX_VALUE)
         );
 
-        pnlTablero.add(jPanel3, "card4");
+        pnlTablero.add(pnlAvanzado, "card4");
 
         pnlInformacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pnlInformacion.setMaximumSize(new java.awt.Dimension(32767, 170));
@@ -325,72 +346,71 @@ public class FrmJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
-
-        
+        mostrarTableroSegunNIvel();
     }//GEN-LAST:event_cmbNivelActionPerformed
 
     private void btnP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP1ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(0,0);
     }//GEN-LAST:event_btnP1ActionPerformed
 
     private void btnP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP2ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(0,1);
     }//GEN-LAST:event_btnP2ActionPerformed
 
     private void btnP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP3ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(0,2);
     }//GEN-LAST:event_btnP3ActionPerformed
 
     private void btnP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP4ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(0,3);
     }//GEN-LAST:event_btnP4ActionPerformed
 
     private void btnP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP5ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(1,0);
     }//GEN-LAST:event_btnP5ActionPerformed
 
     private void btnP6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP6ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(1,1);
     }//GEN-LAST:event_btnP6ActionPerformed
 
     private void btnP7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP7ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(1,2);
     }//GEN-LAST:event_btnP7ActionPerformed
 
     private void btnP8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP8ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(1,3);
     }//GEN-LAST:event_btnP8ActionPerformed
 
     private void btnP9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP9ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(2,0);
     }//GEN-LAST:event_btnP9ActionPerformed
 
     private void btnP10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP10ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(2,1);
     }//GEN-LAST:event_btnP10ActionPerformed
 
     private void btnP11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP11ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(2,2);
     }//GEN-LAST:event_btnP11ActionPerformed
 
     private void btnP12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP12ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(2,3);
     }//GEN-LAST:event_btnP12ActionPerformed
 
     private void btnP13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP13ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(3,0);
     }//GEN-LAST:event_btnP13ActionPerformed
 
     private void btnP14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP14ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(3,1);
     }//GEN-LAST:event_btnP14ActionPerformed
 
     private void btnP15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP15ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(3,2);
     }//GEN-LAST:event_btnP15ActionPerformed
 
     private void btnP16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnP16ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(3,3);
     }//GEN-LAST:event_btnP16ActionPerformed
 
     /**
@@ -437,8 +457,6 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JButton btnP9;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JComboBox<String> cmbNivel;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblIntentos;
     private javax.swing.JLabel lblIntentosValor;
     private javax.swing.JLabel lblNivel;
@@ -448,7 +466,9 @@ public class FrmJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblPuntajeValor;
     private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblTiempoValor;
+    private javax.swing.JPanel pnlAvanzado;
     private javax.swing.JPanel pnlInformacion;
+    private javax.swing.JPanel pnlIntermedio;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlPrincipiante;
     private javax.swing.JPanel pnlTablero;

@@ -3,10 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controlador;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
-import modelo.Carta;
 import modelo.Juego;
 import modelo.Jugador;
 import modelo.Nivel;
@@ -20,18 +16,12 @@ import vista.FrmJuego;
 public class ControladorJuego {
     private Juego juego;
     private FrmJuego vista;
-    private int filaCarta1;
-    private int columnaCarta1;
-    private int filaCarta2;
-    private int columnaCarta2;
-    private boolean primeraCartaSeleccionada;
-    private boolean esperandoComparacion;
-    private boolean juegoActivo;
+   
     
-       public ControladorJuego(Nivel nivel){
+    
+       public ControladorJuego(Nivel nivel, FrmJuego vista){
         this.juego=new Juego(nivel);
         this.vista=vista;
-        iniciarPartida();
     }
     
     public Tablero getTablero(){
@@ -47,68 +37,34 @@ public class ControladorJuego {
         return this.juego.getNivelActual();
     }
     public boolean isEsperandoComparacion(){
-        return this.esperandoComparacion;
+        return this.juego.isComparacion();
     }
     public boolean isJuegoActivo(){
-        return this.juegoActivo;
+        return juego.isJuegoActivo();
     }
     
     public void iniciarPartida(){
-        juego.iniciarPartida();
-        primeraCartaSeleccionada=false;
-        esperandoComparacion=false;
-    }
-    private void finalizarJuego() {
-        juego.finalizarPartida();
-    }
-    public void reiniciarPartida(){
-        iniciarPartida();
+        this.juego.iniciarPartida();
     }
     
-    public void cambiarNivel(Nivel nivel){
-        juego.cambiarNivel(nivel);
-        primeraCartaSeleccionada=false;
-        esperandoComparacion=false;
+    public void reiniciarPartida(){
+        this.juego.iniciarPartida();
+        this.vista.reiniciarValores();
     }
-      private void verificarPareja(){
-        Carta carta1=juego.getTablero().obtenerCarta(filaCarta1, columnaCarta1);
-        Carta carta2=juego.getTablero().obtenerCarta(filaCarta2, columnaCarta2);
-        juego.getJugador().aumentarIntentos();
-        if (juego.getTablero().compararCartas(carta1, carta2)){
-            carta1.marcarEncontrada();
-            carta2.marcarEncontrada();
-            juego.getJugador().registrarParejaEncontrada();
-            primeraCartaSeleccionada=false;
-            esperandoComparacion=false;
-            if (juego.getTablero().juegoTerminado()){
-                finalizarJuego();
-            }
-        }else{
-            Timer temporizador=new Timer(2000,new ActionListener(){
-                @Override
-                public void actionPerformed(ActionEvent evento){
-                    carta1.ocultar();
-                    carta2.ocultar();
-                    primeraCartaSeleccionada=false;
-                    esperandoComparacion=false;
-                }
-            });
-            temporizador.setRepeats(false);
-            temporizador.start();
-        }
-    }
+    
+
     public void seleccionarCarta(int fila,int columna){
-        if (!juegoActivo){
+        if (juego.isJuegoActivo()==false){
             return;
         }
-        if (esperandoComparacion){
+        if (esperandoComparacion==true){
             return;
         }
         Carta carta=juego.getTablero().obtenerCarta(fila, columna);
-        if (carta.isEncontrada()||carta.isVisible()){
+        if (carta.isEncontrada()==true||carta.isVisible()==true){
             return;
         }
-        if (!primeraCartaSeleccionada){
+        if (primeraCartaSeleccionada==false){
             carta.mostrar();
             filaCarta1=fila;
             columnaCarta1=columna;
