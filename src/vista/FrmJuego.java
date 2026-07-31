@@ -239,6 +239,10 @@ public class FrmJuego extends javax.swing.JFrame {
     lblParejasValor.setText(String.valueOf(controlador.getJugador().getParejasEncontradas()));
 }
        
+    public void actualizarTiempo(String tiempo){
+        lblTiempoValor.setText(tiempo);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

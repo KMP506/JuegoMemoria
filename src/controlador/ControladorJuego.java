@@ -17,12 +17,15 @@ import vista.FrmJuego;
 public class ControladorJuego {
     private Juego juego;
     private FrmJuego vista;
+    private Timer cronometro;
    
     
     
        public ControladorJuego(Nivel nivel, FrmJuego vista){
         this.juego=new Juego(nivel);
         this.vista=vista;
+        cronometro=new Timer (1000, e->aumentarTiempo());
+        cronometro.start();
     }
     
     public Tablero getTablero(){
@@ -52,12 +55,14 @@ public class ControladorJuego {
         this.juego.reiniciarPartida();
         this.vista.reiniciarValores();
         this.vista.actualizarTablero();
+        this.cronometro.start();
     }
     
     public void cambiarNivel(Nivel nivel){
         this.vista.actualizarTablero();
         this.juego.cambiarNivel(nivel);
         this.vista.reiniciarValores();
+        this.cronometro.start();
     }
     
     private void validarPareja(){
@@ -90,5 +95,16 @@ public class ControladorJuego {
             espera.start();
         }    
     }
+    
+    private void aumentarTiempo(){
+        if (juego.isJuegoActivo()==true){
+            juego.getTiempo().aumentarSegundos();
+            vista.actualizarTiempo(juego.getTiempo().getTiempoFormateado());
+        }else{
+            cronometro.stop();
+        }
+        
+    }
+    
 }  
   
