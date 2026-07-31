@@ -87,37 +87,65 @@ public class FrmJuego extends javax.swing.JFrame {
          botonesAvanzados[3]=btnA4;
          botonesAvanzados[4]=btnA5;
          botonesAvanzados[5]=btnA6;
-         botonesAvanzados[7]=btnA7;
-         botonesAvanzados[8]=btnA8;
-         botonesAvanzados[9]=btnA9;
-         botonesAvanzados[11]=btnA10;
-         botonesAvanzados[12]=btnA11;
-         botonesAvanzados[13]=btnA12;
-         botonesAvanzados[14]=btnA13;
-         botonesAvanzados[15]=btnA14;
-         botonesAvanzados[16]=btnA15;
-         botonesAvanzados[17]=btnA16;
-         botonesAvanzados[18]=btnA17;
-         botonesAvanzados[19]=btnA18;
-         botonesAvanzados[20]=btnA19;
-         botonesAvanzados[21]=btnA20;
-         botonesAvanzados[22]=btnA21;
-         botonesAvanzados[23]=btnA22;
-         botonesAvanzados[24]=btnA23;
-         botonesAvanzados[25]=btnA24;
-         botonesAvanzados[26]=btnA25;
-         botonesAvanzados[27]=btnA26;
-         botonesAvanzados[28]=btnA27;
-         botonesAvanzados[29]=btnA28;
-         botonesAvanzados[30]=btnA29;
-         botonesAvanzados[31]=btnA30;
-         botonesAvanzados[32]=btnA31;
-         botonesAvanzados[33]=btnA32;
-         botonesAvanzados[34]=btnA33;
-         botonesAvanzados[35]=btnA34;
-         botonesAvanzados[36]=btnA35;
-         botonesAvanzados[37]=btnA36;
-         botonesAvanzados[38]=btnA37;
+         botonesAvanzados[6]=btnA7;
+         botonesAvanzados[7]=btnA8;
+         botonesAvanzados[8]=btnA9;
+         botonesAvanzados[9]=btnA10;
+         botonesAvanzados[10]=btnA11;
+         botonesAvanzados[11]=btnA12;
+         botonesAvanzados[12]=btnA13;
+         botonesAvanzados[13]=btnA14;
+         botonesAvanzados[14]=btnA15;
+         botonesAvanzados[15]=btnA16;
+         botonesAvanzados[16]=btnA17;
+         botonesAvanzados[17]=btnA18;
+         botonesAvanzados[18]=btnA19;
+         botonesAvanzados[19]=btnA20;
+         botonesAvanzados[20]=btnA21;
+         botonesAvanzados[21]=btnA22;
+         botonesAvanzados[22]=btnA23;
+         botonesAvanzados[23]=btnA24;
+         botonesAvanzados[24]=btnA25;
+         botonesAvanzados[25]=btnA26;
+         botonesAvanzados[26]=btnA27;
+         botonesAvanzados[27]=btnA28;
+         botonesAvanzados[28]=btnA29;
+         botonesAvanzados[29]=btnA30;
+         botonesAvanzados[30]=btnA31;
+         botonesAvanzados[31]=btnA32;
+         botonesAvanzados[32]=btnA33;
+         botonesAvanzados[33]=btnA34;
+         botonesAvanzados[34]=btnA35;
+         botonesAvanzados[35]=btnA36;
+         botonesAvanzados[36]=btnA37;
+         botonesAvanzados[37]=btnA38;
+         botonesAvanzados[38]=btnA39;
+         botonesAvanzados[39]=btnA40;
+         botonesAvanzados[40]=btnA41;
+         botonesAvanzados[41]=btnA42;
+         botonesAvanzados[42]=btnA43;
+         botonesAvanzados[43]=btnA44;
+         botonesAvanzados[44]=btnA45;
+         botonesAvanzados[45]=btnA46;
+         botonesAvanzados[46]=btnA47;
+         botonesAvanzados[47]=btnA48;
+         botonesAvanzados[48]=btnA49;
+         botonesAvanzados[49]=btnA50;
+         botonesAvanzados[50]=btnA51;
+         botonesAvanzados[51]=btnA52;
+         botonesAvanzados[52]=btnA53;
+         botonesAvanzados[53]=btnA54;
+         botonesAvanzados[54]=btnA55;
+         botonesAvanzados[55]=btnA56;
+         botonesAvanzados[56]=btnA57;
+         botonesAvanzados[57]=btnA58;
+         botonesAvanzados[58]=btnA59;
+         botonesAvanzados[59]=btnA60;
+         botonesAvanzados[60]=btnA61;
+         botonesAvanzados[61]=btnA62;
+         botonesAvanzados[62]=btnA63;
+         botonesAvanzados[63]=btnA64;
+        
         
        
          
@@ -586,6 +614,8 @@ public class FrmJuego extends javax.swing.JFrame {
 
         btnA39.addActionListener(this::btnA39ActionPerformed);
         pnlAvanzado.add(btnA39);
+
+        btnA40.addActionListener(this::btnA40ActionPerformed);
         pnlAvanzado.add(btnA40);
 
         btnA41.addActionListener(this::btnA41ActionPerformed);
@@ -602,8 +632,14 @@ public class FrmJuego extends javax.swing.JFrame {
 
         btnA45.addActionListener(this::btnA45ActionPerformed);
         pnlAvanzado.add(btnA45);
+
+        btnA46.addActionListener(this::btnA46ActionPerformed);
         pnlAvanzado.add(btnA46);
+
+        btnA47.addActionListener(this::btnA47ActionPerformed);
         pnlAvanzado.add(btnA47);
+
+        btnA48.addActionListener(this::btnA48ActionPerformed);
         pnlAvanzado.add(btnA48);
 
         btnA49.addActionListener(this::btnA49ActionPerformed);
@@ -1049,139 +1085,139 @@ public class FrmJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnA18ActionPerformed
 
     private void btnA19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA19ActionPerformed
-        seleccionarCarta(2,3);   
+        seleccionarCarta(2,2);   
     }//GEN-LAST:event_btnA19ActionPerformed
 
     private void btnA20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA20ActionPerformed
-        seleccionarCarta(2,4);   
+        seleccionarCarta(2,3);   
     }//GEN-LAST:event_btnA20ActionPerformed
 
     private void btnA21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA21ActionPerformed
-        seleccionarCarta(2,5);   
+        seleccionarCarta(2,4);   
     }//GEN-LAST:event_btnA21ActionPerformed
 
     private void btnA25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA25ActionPerformed
-        seleccionarCarta(3,1);   
+        seleccionarCarta(3,0);   
     }//GEN-LAST:event_btnA25ActionPerformed
 
     private void btnA26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA26ActionPerformed
-        seleccionarCarta(3,2);   
+        seleccionarCarta(3,1);   
     }//GEN-LAST:event_btnA26ActionPerformed
 
     private void btnA27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA27ActionPerformed
-        seleccionarCarta(3,3);   
+        seleccionarCarta(3,2);   
     }//GEN-LAST:event_btnA27ActionPerformed
 
     private void btnA28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA28ActionPerformed
-        seleccionarCarta(3,4);   
+        seleccionarCarta(3,3);   
     }//GEN-LAST:event_btnA28ActionPerformed
 
     private void btnA29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA29ActionPerformed
-        seleccionarCarta(3,5);   
+        seleccionarCarta(3,4);   
     }//GEN-LAST:event_btnA29ActionPerformed
 
     private void btnA33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA33ActionPerformed
-        seleccionarCarta(4,1);   
+        seleccionarCarta(4,0);   
     }//GEN-LAST:event_btnA33ActionPerformed
 
     private void btnA34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA34ActionPerformed
-        seleccionarCarta(4,2);   
+        seleccionarCarta(4,1);   
     }//GEN-LAST:event_btnA34ActionPerformed
 
     private void btnA35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA35ActionPerformed
-        seleccionarCarta(4,3);   
+        seleccionarCarta(4,2);   
     }//GEN-LAST:event_btnA35ActionPerformed
 
     private void btnA36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA36ActionPerformed
-        seleccionarCarta(4,4);   
+        seleccionarCarta(4,3);   
     }//GEN-LAST:event_btnA36ActionPerformed
 
     private void btnA37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA37ActionPerformed
-        seleccionarCarta(4,5);   
+        seleccionarCarta(4,4);   
     }//GEN-LAST:event_btnA37ActionPerformed
 
     private void btnA41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA41ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(5,0); 
     }//GEN-LAST:event_btnA41ActionPerformed
 
     private void btnA42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA42ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(5,1); 
     }//GEN-LAST:event_btnA42ActionPerformed
 
     private void btnA43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA43ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(5,2); 
     }//GEN-LAST:event_btnA43ActionPerformed
 
     private void btnA44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA44ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(5,3);
     }//GEN-LAST:event_btnA44ActionPerformed
 
     private void btnA45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA45ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(5,4); 
     }//GEN-LAST:event_btnA45ActionPerformed
 
     private void btnA49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA49ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,0); 
     }//GEN-LAST:event_btnA49ActionPerformed
 
     private void btnA50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA50ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,1); 
     }//GEN-LAST:event_btnA50ActionPerformed
 
     private void btnA51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA51ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,2); 
     }//GEN-LAST:event_btnA51ActionPerformed
 
     private void btnA52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA52ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,3); 
     }//GEN-LAST:event_btnA52ActionPerformed
 
     private void btnA53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA53ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,4); 
     }//GEN-LAST:event_btnA53ActionPerformed
 
     private void btnA57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA57ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(7,0); 
     }//GEN-LAST:event_btnA57ActionPerformed
 
     private void btnA58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA58ActionPerformed
-        // TODO add your handling code here:
+       seleccionarCarta(7,1); 
     }//GEN-LAST:event_btnA58ActionPerformed
 
     private void btnA59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA59ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(7,2); 
     }//GEN-LAST:event_btnA59ActionPerformed
 
     private void btnA60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA60ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(7,3); 
     }//GEN-LAST:event_btnA60ActionPerformed
 
     private void btnA61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA61ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(7,4); 
     }//GEN-LAST:event_btnA61ActionPerformed
 
     private void btnA62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA62ActionPerformed
-        // TODO add your handling code here:
+         seleccionarCarta(7,5); 
     }//GEN-LAST:event_btnA62ActionPerformed
 
     private void btnA63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA63ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(7,6);
     }//GEN-LAST:event_btnA63ActionPerformed
 
     private void btnA64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA64ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(7,7);
     }//GEN-LAST:event_btnA64ActionPerformed
 
     private void btnA54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA54ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,5); 
     }//GEN-LAST:event_btnA54ActionPerformed
 
     private void btnA55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA55ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,6); 
     }//GEN-LAST:event_btnA55ActionPerformed
 
     private void btnA56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA56ActionPerformed
-        // TODO add your handling code here:
+        seleccionarCarta(6,7); 
     }//GEN-LAST:event_btnA56ActionPerformed
 
     private void btnA14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA14ActionPerformed
@@ -1201,36 +1237,52 @@ public class FrmJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnA11ActionPerformed
 
     private void btnA22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA22ActionPerformed
-        seleccionarCarta(2,6);   
+        seleccionarCarta(2,5);   
     }//GEN-LAST:event_btnA22ActionPerformed
 
     private void btnA23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA23ActionPerformed
-        seleccionarCarta(2,7);   
+        seleccionarCarta(2,6);   
     }//GEN-LAST:event_btnA23ActionPerformed
 
     private void btnA24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA24ActionPerformed
-        seleccionarCarta(3,0);   
+        seleccionarCarta(3,7);   
     }//GEN-LAST:event_btnA24ActionPerformed
 
     private void btnA30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA30ActionPerformed
-        seleccionarCarta(3,6);   
+        seleccionarCarta(3,5);   
     }//GEN-LAST:event_btnA30ActionPerformed
 
     private void btnA31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA31ActionPerformed
-        seleccionarCarta(3,7);   
+        seleccionarCarta(3,6);   
     }//GEN-LAST:event_btnA31ActionPerformed
 
     private void btnA32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA32ActionPerformed
-        seleccionarCarta(4,0);   
+        seleccionarCarta(3,7);   
     }//GEN-LAST:event_btnA32ActionPerformed
 
     private void btnA38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA38ActionPerformed
-        seleccionarCarta(4,6);   
+        seleccionarCarta(4,5);   
     }//GEN-LAST:event_btnA38ActionPerformed
 
     private void btnA39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA39ActionPerformed
-        seleccionarCarta(4,7);   
+        seleccionarCarta(4,6);   
     }//GEN-LAST:event_btnA39ActionPerformed
+
+    private void btnA40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA40ActionPerformed
+        seleccionarCarta(4,7); 
+    }//GEN-LAST:event_btnA40ActionPerformed
+
+    private void btnA46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA46ActionPerformed
+        seleccionarCarta(5,5); 
+    }//GEN-LAST:event_btnA46ActionPerformed
+
+    private void btnA47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA47ActionPerformed
+        seleccionarCarta(5,6); 
+    }//GEN-LAST:event_btnA47ActionPerformed
+
+    private void btnA48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA48ActionPerformed
+        seleccionarCarta(5,7); 
+    }//GEN-LAST:event_btnA48ActionPerformed
 
     /**
      * @param args the command line arguments
