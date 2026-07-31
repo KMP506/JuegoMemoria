@@ -51,39 +51,43 @@ public class ControladorJuego {
     public void reiniciarPartida(){
         this.juego.reiniciarPartida();
         this.vista.reiniciarValores();
+        this.vista.actualizarTablero();
     }
     
     public void cambiarNivel(Nivel nivel){
-        
+        this.vista.actualizarTablero();
         this.juego.cambiarNivel(nivel);
         this.vista.reiniciarValores();
     }
     
     private void validarPareja(){
         boolean pareja;
-        
+       
         pareja=juego.verificarPareja();
         if(pareja==false){
             juego.ocultarCartas();
+            
         }
+        vista.actualizarTablero();
     }
 
     public void seleccionarCarta(int fila,int columna){
         boolean seleccionValida;
         
+        
         seleccionValida=juego.seleccionarCarta(fila, columna);
         if(seleccionValida==false){
             return;
         }
+        vista.actualizarTablero();
+        
         if(juego.isComparacion()==true){
             Timer espera;
             espera= new Timer(2000, e->validarPareja());
             
             espera.setRepeats(false);
             espera.start();
-            
-            
-        }
+        }    
     }
 }  
   

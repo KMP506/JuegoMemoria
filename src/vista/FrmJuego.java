@@ -195,6 +195,44 @@ public class FrmJuego extends javax.swing.JFrame {
     lblTiempoValor.setText("00:00");
 }
      
+    
+     public void actualizarTablero(){
+     javax.swing.JButton[] botones;
+    int filas;
+    int columnas;
+    int posicion = 0;
+
+    filas = controlador.getNivelActual().getFilas();
+    columnas = controlador.getNivelActual().getColumnas();
+
+    if (controlador.getNivelActual() == Nivel.PRINCIPIANTE) {
+        botones = botonesPrincipiante;
+
+    } else if (controlador.getNivelActual() == Nivel.INTERMEDIO) {
+        botones = botonesIntermedio;
+
+    } else {
+        botones = botonesAvanzados;
+    }
+
+    for (int fila = 0; fila < filas; fila++) {
+
+        for (int columna = 0; columna < columnas; columna++) {
+
+            if (controlador.getTablero().obtenerCarta(fila, columna).isVisible()) {
+              botones[posicion].setText(
+              controlador.getTablero().obtenerCarta(fila, columna).getImagen());
+            } 
+            else {
+                botones[posicion].setText("");
+            }
+            posicion++;
+        }
+    }
+     }
+     
+     
+     
      
     /**
      * This method is called from within the constructor to initialize the form.
@@ -829,8 +867,8 @@ public class FrmJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
-        reiniciarValores();
-        
+    actualizarTablero();
+    controlador.reiniciarPartida();
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void cmbNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelActionPerformed
