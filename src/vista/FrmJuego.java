@@ -156,6 +156,12 @@ public class FrmJuego extends javax.swing.JFrame {
        
     }
     
+    private java.awt.Color obtenerColor(String imagen){
+        int numero;
+        numero=Integer.parseInt(imagen.replace("imagen", ""));
+        return java.awt.Color.getHSBColor(((numero*7)%32)/32.0f,1.0f,1.0f);
+    }
+    
     public void cambiarNivelJuego(){
         int opcion;
         
@@ -201,30 +207,22 @@ public class FrmJuego extends javax.swing.JFrame {
     int filas;
     int columnas;
     int posicion = 0;
-
     filas = controlador.getNivelActual().getFilas();
     columnas = controlador.getNivelActual().getColumnas();
-
-    if (controlador.getNivelActual() == Nivel.PRINCIPIANTE) {
+    if (controlador.getNivelActual() == Nivel.PRINCIPIANTE){
         botones = botonesPrincipiante;
-
-    } else if (controlador.getNivelActual() == Nivel.INTERMEDIO) {
+    }else if (controlador.getNivelActual() == Nivel.INTERMEDIO){
         botones = botonesIntermedio;
-
-    } else {
+    }else{
         botones = botonesAvanzados;
     }
-
-    for (int fila = 0; fila < filas; fila++) {
-
-        for (int columna = 0; columna < columnas; columna++) {
-
-            if (controlador.getTablero().obtenerCarta(fila, columna).isVisible()) {
-              botones[posicion].setText(
-              controlador.getTablero().obtenerCarta(fila, columna).getImagen());
+    for (int fila = 0; fila < filas; fila++){
+        for (int columna = 0; columna < columnas; columna++){
+            if (controlador.getTablero().obtenerCarta(fila, columna).isVisible()){  
+               botones[posicion].setBackground(obtenerColor(controlador.getTablero().obtenerCarta(fila, columna).getImagen()));
             } 
             else {
-                botones[posicion].setText("");
+                botones[posicion].setBackground(java.awt.Color.LIGHT_GRAY);
             }
             posicion++;
         }
@@ -393,51 +391,67 @@ public class FrmJuego extends javax.swing.JFrame {
 
         pnlPrincipiante.setLayout(new java.awt.GridLayout(4, 4));
 
+        btnP1.setOpaque(true);
         btnP1.addActionListener(this::btnP1ActionPerformed);
         pnlPrincipiante.add(btnP1);
 
+        btnP2.setOpaque(true);
         btnP2.addActionListener(this::btnP2ActionPerformed);
         pnlPrincipiante.add(btnP2);
 
+        btnP3.setOpaque(true);
         btnP3.addActionListener(this::btnP3ActionPerformed);
         pnlPrincipiante.add(btnP3);
 
+        btnP4.setOpaque(true);
         btnP4.addActionListener(this::btnP4ActionPerformed);
         pnlPrincipiante.add(btnP4);
 
+        btnP5.setOpaque(true);
         btnP5.addActionListener(this::btnP5ActionPerformed);
         pnlPrincipiante.add(btnP5);
 
+        btnP6.setOpaque(true);
         btnP6.addActionListener(this::btnP6ActionPerformed);
         pnlPrincipiante.add(btnP6);
 
+        btnP7.setOpaque(true);
         btnP7.addActionListener(this::btnP7ActionPerformed);
         pnlPrincipiante.add(btnP7);
 
+        btnP8.setOpaque(true);
         btnP8.addActionListener(this::btnP8ActionPerformed);
         pnlPrincipiante.add(btnP8);
 
+        btnP9.setOpaque(true);
         btnP9.addActionListener(this::btnP9ActionPerformed);
         pnlPrincipiante.add(btnP9);
 
+        btnP10.setOpaque(true);
         btnP10.addActionListener(this::btnP10ActionPerformed);
         pnlPrincipiante.add(btnP10);
 
+        btnP11.setOpaque(true);
         btnP11.addActionListener(this::btnP11ActionPerformed);
         pnlPrincipiante.add(btnP11);
 
+        btnP12.setOpaque(true);
         btnP12.addActionListener(this::btnP12ActionPerformed);
         pnlPrincipiante.add(btnP12);
 
+        btnP13.setOpaque(true);
         btnP13.addActionListener(this::btnP13ActionPerformed);
         pnlPrincipiante.add(btnP13);
 
+        btnP14.setOpaque(true);
         btnP14.addActionListener(this::btnP14ActionPerformed);
         pnlPrincipiante.add(btnP14);
 
+        btnP15.setOpaque(true);
         btnP15.addActionListener(this::btnP15ActionPerformed);
         pnlPrincipiante.add(btnP15);
 
+        btnP16.setOpaque(true);
         btnP16.addActionListener(this::btnP16ActionPerformed);
         pnlPrincipiante.add(btnP16);
 
